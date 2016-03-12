@@ -122,7 +122,8 @@ gulp.task('images', function() {
  *=========================================================*/
  gulp.task('watch', function() {
     livereload.listen();
-	gulp.watch('**/*.html', livereload.reload);
+	gulp.watch('*.html', livereload.reload);
+	gulp.watch('**/*.php', livereload.reload);
     gulp.watch(assets_source + '/css/*.css', ['css']);
     gulp.watch(assets_source + '/js/*.js', ['js']);
     gulp.watch(assets_source + '/img/*.{png,jpg,gif}', ['images']);

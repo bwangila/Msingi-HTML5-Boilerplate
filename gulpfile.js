@@ -34,7 +34,9 @@ var concat 			= require('gulp-concat'),
  *==========================================================*/
 gulp.task('css', function() {
     return gulp.src([
-    	assets_source + '/css/*.css'
+    	assets_source + '/css/normalize.css',
+    	assets_source + '/css/skeleton.css',
+    	assets_source + '/css/style.css'
 	])
         // Minify CSS
         .pipe(cssnano())
@@ -113,6 +115,18 @@ gulp.task('images', function() {
         .pipe(size())
         // Live reload
         .pipe(livereload());
+});
+
+
+
+/*==========================================================
+ * Copy fonts folder to final build
+ *=========================================================*/
+gulp.task('copy_fonts', function() {
+    gulp.src([
+            assets_source + '/fonts'
+        ])
+        .pipe(gulp.dest(assets_build + '/fonts'))
 });
 
 

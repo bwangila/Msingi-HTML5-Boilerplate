@@ -15,45 +15,46 @@
  ============================================================================
    01 - HELPERS__
  ============================================================================ */
+hr { margin-top: 3rem; margin-bottom: 3.5rem; border-width: 0; border-top: 1px solid #E1E1E1; }
 .hidden { display: none !important; visibility: hidden; }
 .visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
 .clearfix:before, .clearfix:after { content: " "; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { *zoom: 1; }
-.left       { float:left; }
-.right      { float:right; }
-.txtcenter  { text-align:center; }
-.txtleft    { text-align:left; }
-.txtright   { text-align:right; }
-.relative   { position:relative; }
-.overhide   { overflow:hidden; }
-.boxfix     { box-sizing:border-box; }
-.no-display { display:none; }
-.clear      { clear:both; }
-.wide       { width:100%; }
-.disabled   { opacity:0.4; -webkit-filter:grayscale(1) }
-.fx-fast    { -webkit-transition:all 0.3s ease-out;
-                 -moz-transition:all 0.3s ease-out;
-                   -o-transition:all 0.3s ease-out;
-                  -ms-transition:all 0.3s ease-out;
-                      transition:all 0.3s ease-out; }
-.fx         { -webkit-transition:all 0.6s ease-out;
-                 -moz-transition:all 0.6s ease-out;
-                   -o-transition:all 0.6s ease-out;
-                  -ms-transition:all 0.6s ease-out;
-                      transition:all 0.6s ease-out; }
-.fx-slow    { -webkit-transition:all 0.8s ease-out;
-                 -moz-transition:all 0.8s ease-out;
-                   -o-transition:all 0.8s ease-out;
-                  -ms-transition:all 0.8s ease-out;
-                      transition:all 0.8s ease-out; }
-.no-margin { margin: 0; }
+.align-right { float: right; }
+.align-left  { float: left; }
+.txt-center   { text-align:center; }
+.txt-left     { text-align:left; }
+.txt-right    { text-align:right; }
+.relative    { position:relative; }
+.overhide    { overflow:hidden; }
+.boxfix      { box-sizing:border-box; }
+.no-display  { display:none; }
+.disabled    { opacity:0.4; -webkit-filter:grayscale(1) }
+.fx-fast     { transition:all 0.3s ease-out; }
+.fx-slow     { transition:all 0.8s ease-out; }
+.fx          { transition:all 0.6s ease-out; }
+.max-full-width { max-width: 100%; box-sizing: border-box; }
+.full-width { width: 100%; box-sizing: border-box; }
+
 
 
 /* =============================================================================
    02 - TYPOGRAPHY__
    =============================================================================
- * Font-face
+ * Base Styles
+ * ---------------------------------*/
+html {
+	font-size: 62.5%; /* Makes sure all REM measurements are based on 10px  */
+}
+
+body {
+	font: 400 1.6em/1.6 "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #222;
+}
+
+
+/* Fonts
  * ---------------------------------*/
 @font-face {
     font-family: 'SoulLotion';
@@ -64,43 +65,61 @@
          url('../fonts/soul_lotion-webfont.svg#soul_lotion-webfont') format('svg');
     font-weight: normal; font-style: normal;
 }
-@font-face {
-    font-family: 'SoulLotionBold';
-    src: url('../fonts/soul_lotion_bold-webfont.eot');
-    src: url('../fonts/soul_lotion_bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/soul_lotion_bold-webfont.woff') format('woff'),
-         url('../fonts/soul_lotion_bold-webfont.ttf') format('truetype'),
-         url('../fonts/soul_lotion_bold-webfont.svg#soul_lotion_bold-webfont') format('svg');
-    font-weight: normal; font-style: normal;
+
+
+/* Headings
+ * ---------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    margin-top: 0;
+	margin-bottom: 1rem;
+    padding: 0;
 }
+
+h1 { font-size: 4.0rem; line-height: 1.2;  letter-spacing: -.1rem;}
+h2 { font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; }
+h3 { font-size: 3.0rem; line-height: 1.3;  letter-spacing: -.1rem; }
+h4 { font-size: 2.4rem; line-height: 1.35; letter-spacing: -.08rem; }
+h5 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
+h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
+
+@media (min-width: 550px) { /* Larger than phablet */
+	h1 { font-size: 5.0rem; }
+	h2 { font-size: 4.2rem; }
+	h3 { font-size: 3.6rem; }
+	h4 { font-size: 3.0rem; }
+	h5 { font-size: 2.4rem; }
+	h6 { font-size: 1.5rem; }
+}
+
+
+/* Links
+ * ---------------------------------*/
+a {
+	color: #1EAEDB; }
+a:hover {
+	color: #0FA0CE; }
+
 
 /* Text Selection
  * ---------------------------------*/
 ::-moz-selection {
-    background: #b3d4fc;
-    text-shadow: none;
+	background: #b3d4fc;
+	text-shadow: none;
 }
 
 ::selection {
-    background: #b3d4fc;
-    text-shadow: none;
+	background: #b3d4fc;
+	text-shadow: none;
 }
+
 
 /* Typography
  * ---------------------------------*/
-body {
-    font-size: 1em;
-    line-height: 1.4;
-    font-family: Arial, Helvetica, sans-serif;
+p {
+	margin-top: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: normal;
-    margin: 0;
-    padding: 0;
-    text-transform: uppercase;
-    font-family: "SoulLotionBold", Arial, Helvetica, sans-serif;
-}
 
 
 /* =============================================================================
@@ -108,6 +127,8 @@ h1, h2, h3, h4, h5, h6 {
    =============================================================================
  * Logo & Main Navigation
  * ---------------------------------*/
+
+
 
 
 /* Site-wide Content Styles
@@ -146,11 +167,24 @@ h1, h2, h3, h4, h5, h6 {
 /* ==========================================================================
    Media Queries
    ========================================================================== */
+/* Larger than mobile */
+@media (min-width: 40em) {}
 
-@media only screen and (min-width: 35em) {
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 55em) {}
 
-}
+/* Larger than tablet */
+@media (min-width: 75em) {}
 
+/* Larger than desktop */
+@media (min-width: 100em) {}
+
+/* Larger than Desktop HD */
+@media (min-width: 120em) {}
+
+
+/* Print Styles
+ * ---------------------------------*/
 @media print,
        (-o-min-device-pixel-ratio: 5/4),
        (-webkit-min-device-pixel-ratio: 1.25),

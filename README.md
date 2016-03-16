@@ -12,6 +12,7 @@ The main objective of this project is to allow one to dive into a website design
     * Lint, minify, concatenate and move JS file
     * Optimize image files - jpgs, jpegs, pngs, gifs, svg
     * Livereload - automatically reload your browser as you code
+* Bundled with [Skeleton](http://getskeleton.com/) responsive CSS framework
 
 
 ## How to use it

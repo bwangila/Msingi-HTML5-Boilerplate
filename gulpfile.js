@@ -34,8 +34,7 @@ var concat 			= require('gulp-concat'),
  *==========================================================*/
 gulp.task('css', function() {
     return gulp.src([
-    	assets_source + '/css/normalize.css',
-    	assets_source + '/css/skeleton.css',
+    	assets_source + '/css/foundation.css',
     	assets_source + '/css/style.css'
 	])
         // Minify CSS
@@ -59,7 +58,8 @@ gulp.task('css', function() {
  *=========================================================*/
 gulp.task('js', function() {
     return gulp.src([
-    	assets_source + '/js/libs/*.js',
+        assets_source + '/js/libs/what-input.js',
+        assets_source + '/js/libs/foundation.js',
     	assets_source + '/js/main.js'
     ])
         // Minify JS files
@@ -124,7 +124,7 @@ gulp.task('images', function() {
  *=========================================================*/
 gulp.task('copy_fonts', function() {
     gulp.src([
-            assets_source + '/fonts'
+            assets_source + '/fonts/*'
         ])
         .pipe(gulp.dest(assets_build + '/fonts'))
 });
@@ -143,5 +143,6 @@ gulp.task('copy_fonts', function() {
     gulp.watch(assets_source + '/img/*.{png,jpg,gif}', ['images']);
 });
 
-gulp.task('default', ['css', 'js', 'copy_js', 'jshint', 'images', 'watch']);
+gulp.task('default', ['css', 'js', 'copy_js', 'copy_fonts', 'jshint', 'images']);
+
 
